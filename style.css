@@ -179,7 +179,7 @@ body {
 
 .home-page .submarine__container {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   width: 400px;
   height: 200px;
@@ -517,6 +517,47 @@ body {
 @keyframes moveThegroundRight {
   90% { opacity: 1; left: 100%; }
   95%, 100% { left: 1050%; opacity: 0; }
+}
+
+.home-page-container {
+  position: relative;
+  min-height: 100vh; /* Ensure full viewport height, so no immediate scroll is needed */
+}
+
+.homepage-message {
+  position: absolute;
+  top: 25%; /* Adjust this value to move the message up/down as desired */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999; /* Higher than the submarine’s z-index (1) */
+  text-align: center;
+  color: #fff;
+}
+
+.homepage-message h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 0 auto 20px;
+  max-width: 700px;
+  line-height: 1.2;
+}
+
+.homepage-message a.learn-more-link {
+  display: inline-block;
+  padding: 10px 20px; /* Reduced padding for a smaller button */
+  font-size: 0.9em;
+  background-color: #ff9800;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.homepage-message a.learn-more-link:hover {
+  transform: scale(1.1);         /* Scales up the button */
+  background-color: #e68a00;       /* Changes background color on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Adds a shadow for a 3D effect */
 }
 
 
@@ -978,7 +1019,7 @@ header {
   flex-direction: column;
   gap: 15px;
   padding: 20px;
-  background: #f8f8f8;
+  background: #fff;
   border: none;
   border-radius: 10px;
 }
