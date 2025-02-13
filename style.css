@@ -1214,7 +1214,8 @@ header {
 }
 
 .quizbank-content .edit-btn,
-.quizbank-content .score-btn {
+.quizbank-content .score-btn,
+.quizbank-content .quiz-link-btn {
   border: none;
   padding: 10px 14px;
   border-radius: 6px;
@@ -1228,7 +1229,8 @@ header {
 }
 
 .quizbank-content .edit-btn i,
-.quizbank-content .score-btn i {
+.quizbank-content .score-btn i,
+.quizbank-content .quiz-link-btn i {
   font-size: 16px;
 }
 
@@ -1247,6 +1249,7 @@ header {
   border-radius: 6px;
   font-size: 14px;
   text-align: center;
+  text-decoration: none;
 }
 
 .quizbank-content .edit-btn:hover {
@@ -1256,17 +1259,36 @@ header {
 .quizbank-content .score-btn {
   width: 60%;
   max-width: 150px;
-  background: #28a745;
+  background: #ef689e;
   color: #fff;
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 14px;
   text-align: center;
+  text-decoration: none;
 }
 
 .quizbank-content .score-btn:hover {
-  background: #218838;
+  background: #e30449;
 }
+
+.quizbank-content .quiz-link-btn {
+  width: 60%;
+  max-width: 150px;
+  background: #363535;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.quizbank-content .quiz-link-btn:hover {
+  background: #010101;
+}
+
+
 
 @media (max-width: 768px) {
   .quizbank-content .search-container {
@@ -1341,11 +1363,19 @@ header {
     flex-grow: 2;
     max-width: 130px; 
   }
+  .quizbank-content .quiz-link-btn {
+    width: auto;
+    flex-grow: 1;
+    max-width: 130px; 
+  }
   .quizbank-content .edit-btn:hover {
     background: #0e4bf1;
   }
   .quizbank-content .score-btn:hover {
-    background: #218838;
+    background: #e30449;
+  }
+  .quizbank-content .quiz-link-btn:hover {
+    background: #010101;
   }
 }
 
@@ -1631,5 +1661,93 @@ header {
   .team-section {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+
+
+/* ---------- Profile Form Container ---------- */
+.profile-content .profile-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+
+}
+
+/* ---------- Form Row (for side-by-side layout) ---------- */
+.profile-content .form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Form Group ---------- */
+.profile-content .form-group {
+  flex: 1;
+}
+
+/* Full width for fields like Bio */
+.profile-content .full-width {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Label Styling ---------- */
+.profile-content .profile-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ---------- Input & Textarea Styling ---------- */
+.profile-content .profile-form input,
+.profile-content .profile-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  /* Remove all borders for a clean, minimal look */
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+/* Optional: Provide a subtle bottom-border on focus */
+.profile-content .profile-form input:focus,
+.profile-content .profile-form textarea:focus {
+  box-shadow: inset 0 -2px 0 0 #0e4bf1;
+}
+
+/* ---------- Save Button Styling ---------- */
+.profile-content .save-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(45deg, #f32566, #f46c97);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.profile-content .save-btn:hover {
+  background: linear-gradient(45deg, #e30449, #d21954);
+}
+
+/* ---------- Responsive Adjustments for Smaller Screens ---------- */
+@media (max-width: 600px) {
+  .profile-content .form-row {
+    flex-direction: column;
+  }
+  
+  .profile-content .save-btn {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
   }
 }

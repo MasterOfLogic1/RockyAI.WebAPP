@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+/* ---------- Global Reset & Base Styles ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  background: #0e4bf1;
+  overflow-x: hidden; /* prevent horizontal scrolling */
+  overflow-y: auto;   /* allow vertical scrolling */
+  min-height: 100vh;
+}
+
+/* ---------- Logo Text (Fixed, Top-Left) ---------- */
+.logo-text {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  z-index: 9999; /* keep it on top */
+}
+
+/* ---------- Quiz Container (Wrapper) ---------- */
+.test-question-wrapper {
+  max-width: 600px;
+  margin: 10rem auto 2rem auto; /* Extra space (5rem) from top */
+  padding: 2.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.test-question-wrapper h2 {
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: #0e4bf1; /* Title color to match brand theme */
+}
+
+.test-question-wrapper p {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* ---------- Quiz ID Label ---------- */
+.test-question-wrapper .quiz-id-label {
+    display: block;        /* Make it on its own line */
+    margin-bottom: 1rem;   /* Space below label */
+    text-align: center;
+    font-size: 0.95rem;
+    color: #444;
+    font-weight: 700;
+  }
+
+/* ---------- Read-only Textarea for Question ---------- */
+.test-question-wrapper .question-textarea {
+    width: 100%;
+    min-height: 150px;
+    resize: none;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+  }
+
+/* ---------- Quiz Options ---------- */
+.test-question-wrapper .quiz-options {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.test-question-wrapper .quiz-options li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.test-question-wrapper .quiz-options input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.test-question-wrapper .quiz-options label {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ---------- Buttons ---------- */
+.test-question-wrapper .quiz-buttons {
+  text-align: center; /* Center buttons horizontally on desktop */
+}
+
+.test-question-wrapper .next-button,
+.test-question-wrapper .cancel-button {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.test-question-wrapper .next-button {
+  background: linear-gradient(45deg, #0e4bf1, #1b90fa);
+  color: #fff;
+}
+
+.test-question-wrapper .next-button:hover {
+  background: linear-gradient(45deg, #0a3ac0, #0e4bf1);
+}
+
+.test-question-wrapper .cancel-button {
+  background-color: #cccccc;
+  color: #333;
+}
+
+.test-question-wrapper .cancel-button:hover {
+  background-color: #aaaaaa;
+}
+
+/* ---------- Mobile Responsiveness ---------- */
+@media (max-width: 600px) {
+  .test-question-wrapper{
+    margin: 6rem 1rem 2rem 1rem; /* more top margin on small screens if desired */
+    padding: 1.5rem;
+    width: auto; /* full width minus margins */
+  }
+
+  .test-question-wrapper h2 {
+    font-size: 1.4rem;
+  }
+
+  .test-question-wrapper .next-button,
+  .test-question-wrapper .cancel-button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #333;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Footer styling */
+.footer {
+    position: fixed;       /* Stay in place when scrolling */
+    left: 0;
+    right: 0;
+    bottom: 0;            /* Lock to bottom */
+    height: 60px;         /* Adjust as needed */
+    text-align: center;
+    background: rgba(167, 171, 173, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-size: 14px;
+    padding: 10px;
+    line-height: 40px;    /* Vertically center text if needed */
+    z-index: 9999;        /* Ensure it's on top of other elements */
+  }
+
+
+      .test-starting-wrapper {
+      max-width: 600px;
+      margin: 10rem auto 2rem auto;
+      padding: 2.5rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    .test-starting-wrapper h2 {
+      font-size: 1.8rem;
+      color: #0e4bf1;
+      margin-bottom: 1rem;
+    }
+    .test-starting-wrapper .test-id {
+      font-size: 1rem;
+      color: #444;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .test-starting-wrapper .test-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: url('https://via.placeholder.com/150') no-repeat center;
+      background-size: cover;
+      margin: 0 auto 1.5rem;
+      border: 3px solid #0e4bf1;
+    }
+    .test-starting-wrapper .begin-test-button {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #0e4bf1, #1b90fa);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .test-starting-wrapper .begin-test-button::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+    .test-starting-wrapper .begin-test-button:active::after {
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+
+
+    /***********************************/
+
+    .test-starting-wrapper {
+      max-width: 600px;
+      margin: 15rem auto 2rem auto;
+      padding: 2.5rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    .test-starting-wrapper h2 {
+      font-size: 1.8rem;
+      color: #0e4bf1;
+      margin-bottom: 1rem;
+    }
+    .test-starting-wrapper .test-id {
+      font-size: 1rem;
+      color: #444;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .test-starting-wrapper .test-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: url('rocky.png') no-repeat center;
+      background-size: cover;
+      margin: 0 auto 1.5rem;
+      border: 3px solid #0e4bf1;
+    }
+    .test-starting-wrapper .begin-test-button {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #0e4bf1, #1b90fa);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .test-starting-wrapper .begin-test-button::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+    .test-starting-wrapper .begin-test-button:active::after {
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      .test-starting-wrapper {
+        margin: 10rem 1rem 2rem 1rem;
+        padding: 1.5rem;
+        width: auto;
+      }
+      .test-starting-wrapper h2 {
+        font-size: 1.5rem;
+      }
+      .test-starting-wrapper .test-id {
+        font-size: 0.9rem;
+      }
+      .test-starting-wrapper .test-image {
+        width: 120px;
+        height: 120px;
+      }
+      .test-starting-wrapper .begin-test-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
+    }

@@ -17,7 +17,7 @@
   <header>
     <!-- Hamburger button to open sidebar -->
     <button class="toggle-btn"><i class="fas fa-bars"></i></button>
-    <h2>Quiz Bank</h2>
+    <h2>Results</h2>
     <div class="profile">
       <img src="profile.png" alt="Profile">
     </div>
@@ -35,26 +35,27 @@
       <li class="logout"><a href="signin.html"><i class="fas fa-sign-out-alt"></i> <span class="menu-text">Logout</span></a></li>
     </ul>
   </div>
-
-    <!-- Main Content -->
+  <!-- Main Content -->
   <div class="main-content">
 
     <section>
       <!-- Search Bar -->
-    <div class="quizbank-content">
+    <div class="score-content">
       <div class="search-container">
         <input type="text" placeholder="Search quizzes..." class="search-input" />
         <button class="search-btn"><i class="fas fa-search"></i></button>
       </div>
 
       <!-- Quiz Grid Table -->
-      <div class="quiz-grid">
+      <div class="score-grid">
         <table>
           <thead>
             <tr>
-              <th>Quiz ID</th>
-              <th>Quiz Title</th>
-              <th>Create Date</th>
+              <th>Test ID</th>
+              <th>Test Name</th>
+              <th>Candidate Name</th>
+              <th>Completion Date</th>
+              <th>Score</th>
               <th></th>
             </tr>
           </thead>
@@ -63,22 +64,16 @@
             <tr>
               <td>001</td>
               <td>Introduction to CSS</td>
+              <td>David Oku</td>
               <td>2025-02-11</td>
-              <td>
-                <a href="#take-test.html" class="edit-btn"><i class="fas fa-edit"></i>Edit</a>
-                <a href="#take-test.html" class="score-btn"><i class="fas fa-eye"></i>Results</a>
-                <a href="take-test.html" class="quiz-link-btn"><i class="fas fa-link"></i>Take test</a>
-              </td>
+              <td>50</td>
             </tr>
             <tr>
               <td>002</td>
-              <td>JavaScript Basics</td>
-              <td>2025-02-10</td>
-              <td>
-                <a href="start-test.html" class="edit-btn"><i class="fas fa-edit"></i>Edit</a>
-                <a href="start-test.html" class="score-btn"><i class="fas fa-eye"></i>Results</a>
-                <a href="start-test.html" class="quiz-link-btn"><i class="fas fa-link"></i>Take test</a>
-              </td>
+              <td>Introduction to Excel</td>
+              <td>David Chukwuebuka</td>
+              <td>2025-02-11</td>
+              <td>60.6</td>
             </tr>
             <!-- Add more rows as needed -->
           </tbody>
