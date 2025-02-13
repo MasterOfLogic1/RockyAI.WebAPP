@@ -785,91 +785,92 @@ body {
 /* ============================================
    LOGO WRAPPER (Auth/Dashboard)
 ============================================ */
-.logo-wrapper {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: auto;
-  max-width: 500px;
-  padding: 15px 40px;
+/* --------------------------------
+   Base Dashboard Container
+-------------------------------- */
+.dashboard {
+  /* So everything can occupy full height if needed */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #ffffff; 
+  display: flex;
+  flex-direction: column; /* Header + main-content stacked */
+  color: black;
+  box-sizing: border-box;
+}
+
+/* --------------------------------
+   Header
+-------------------------------- */
+header {
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  z-index: 1000;
-  font-size: 26px;
-  font-weight: bold;
-  color: #fff;
-  letter-spacing: 1px;
-  transition: transform 0.3s ease-in-out;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #f8f8f8;
+  border-bottom: 2px solid #ddd;
+  border-radius: 10px; /* optional styling */
+}
+
+/* Hamburger button in Header */
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 24px;
   cursor: pointer;
 }
 
-.logo-wrapper:hover {
-  transform: scale(1.1);
+/* Profile image (in top-right, for example) */
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.logo-wrapper .logo a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: bold;
-}
-
-.logo-wrapper .logo a:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ============================================
-   DASHBOARD: SIDEBAR, MAIN CONTENT & HEADER
-============================================ */
-.dashboard {
-  display: flex;
-  background: white;
-  color: black;
-}
-
-/* If you have a very long list in the sidebar, 
-   you might want to allow it to scroll:
-   .dashboard .sidebar {
-     overflow-y: auto;
-   }
-*/
-.dashboard .sidebar {
+/* --------------------------------
+   Sidebar
+-------------------------------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden off-screen by default */
   width: 250px;
   height: 100vh;
   background: #0e4bf1;
   padding-top: 20px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  transition: width 0.3s;
+  transition: left 0.3s ease;
+  z-index: 999; /* on top of the main content */
+  box-sizing: border-box;
 }
 
-.dashboard .sidebar .toggle-btn {
+/* Close button inside the sidebar */
+.sidebar .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
   background: none;
   border: none;
   color: white;
   font-size: 24px;
   cursor: pointer;
-  margin-left: 20px;
 }
 
-.dashboard .sidebar ul {
+/* Sidebar menu styles */
+.sidebar ul {
   list-style: none;
+  margin: 60px 0 0; /* push down below the close button */
   padding: 0;
-  margin: 0;
 }
 
-.dashboard .sidebar ul li {
+.sidebar ul li {
   padding: 15px 20px;
   position: relative;
 }
 
-.dashboard .sidebar ul li a {
+.sidebar ul li a {
   text-decoration: none;
   color: white;
   display: flex;
@@ -877,16 +878,16 @@ body {
   font-size: 18px;
   padding: 10px;
   border-radius: 8px;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s;
   position: relative;
 }
 
-.dashboard .sidebar ul li a i {
+.sidebar ul li a i {
   margin-right: 12px;
   font-size: 20px;
 }
 
-.dashboard .sidebar ul li a.active::before {
+.sidebar ul li a:hover::before {
   content: "";
   position: absolute;
   top: 0;
@@ -898,65 +899,50 @@ body {
   z-index: -1;
 }
 
-.dashboard .sidebar ul li a:hover::before {
-  width: 100%;
+/* --------------------------------
+   Sidebar "open" state
+-------------------------------- */
+.sidebar.open {
+  left: 0; /* Slide into view */
 }
 
-.dashboard .sidebar.collapsed {
-  width: 80px;
+/* On mobile (or if you want it for all sizes),
+   the .menu-text can be hidden. 
+   Or hide only below certain width. */
+@media (max-width: 768px) {
+  .sidebar .menu-text {
+    display: none; 
+  }
+  .sidebar {
+    left: -100pxpx; /* Hidden off-screen by default */
+    width: 70px;
+
+  }
 }
 
-.dashboard .sidebar.collapsed .menu-text {
-  display: none;
-}
-
-.dashboard .main-content {
-  margin-left: 250px;
-  width: 100%;
+/* --------------------------------
+   Main Content
+-------------------------------- */
+.main-content {
+  flex: 1; 
   padding: 20px;
-  background: white;
-  transition: margin-left 0.3s;
-  display: flex;
-  flex-direction: column;
-  /* Let main-content grow vertically and allow scrolling if needed */
-  min-height: 100vh;
-  /* If you want separate scroll in content, you can do: overflow-y: auto; */
+  background: #ffffff;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.dashboard .sidebar.collapsed + .main-content {
-  margin-left: 80px;
-}
-
-.dashboard header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: #f8f8f8;
-  border-bottom: 2px solid #ddd;
-  border-radius: 10px;
-}
-
-.dashboard .profile img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dashboard .content {
+.content {
   background: #f8f8f8;
   border: 2px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  position: relative;
+  min-height: 400px; /* just for example */
 }
+
+
+
 
 /* ============================================
    DASHBOARD – QUIZ FORM (CREATE QUIZ PAGE)
@@ -969,13 +955,10 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 100px;
+  align-self: flex-end;
 }
-.dashboard .manual-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 2;
-}
+
 .dashboard .manual-btn:hover {
   background-color: #e30449;
 }
@@ -997,6 +980,7 @@ body {
   padding: 20px;
   background: #f8f8f8;
   border: none;
+  border-radius: 10px;
 }
 
 .dashboard .quiz-form input,

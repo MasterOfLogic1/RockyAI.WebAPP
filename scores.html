@@ -2,54 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz Bank</title>
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Create Quiz</title>
+  
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <!-- Your main CSS file -->
+  <link rel="stylesheet" href="style.css"/>
   <script defer src="dashboard.js"></script>
 </head>
 <body class="dashboard">
-  <!-- Sidebar -->
-  <div class="sidebar">
+
+  <!-- Header with hamburger -->
+  <header>
+    <!-- Hamburger button to open sidebar -->
     <button class="toggle-btn"><i class="fas fa-bars"></i></button>
+    <h2>Create Quiz</h2>
+    <div class="profile">
+      <img src="profile.png" alt="Profile">
+    </div>
+  </header>
+
+  <!-- Sidebar (initially hidden) -->
+  <div class="sidebar">
+    <!-- Close button inside the sidebar -->
+    <button class="close-btn"><i class="fas fa-times"></i></button>
     <ul>
-      <li>
-        <a href="create.html" class="menu-item">
-          <i class="fas fa-pen"></i> <span class="menu-text">Create</span>
-        </a>
-      </li>
-      <li>
-        <a href="quizbank.html" class="menu-item">
-          <i class="fas fa-book"></i> <span class="menu-text">Quiz Bank</span>
-        </a>
-      </li>
-      <li>
-        <a href="scores.html" class="menu-item">
-          <i class="fas fa-chart-bar"></i> <span class="menu-text">Scores</span>
-        </a>
-      </li>
-      <li>
-        <a href="settings.html" class="menu-item">
-          <i class="fas fa-cogs"></i> <span class="menu-text">Settings</span>
-        </a>
-      </li>
-      <li class="logout">
-        <a href="signin.html" class="menu-item">
-          <i class="fas fa-sign-out-alt"></i> <span class="menu-text">Logout</span>
-        </a>
-      </li>
+      <li><a href="create.html"><i class="fas fa-pen"></i> <span class="menu-text">Create</span></a></li>
+      <li><a href="quizbank.html"><i class="fas fa-book"></i> <span class="menu-text">Quiz Bank</span></a></li>
+      <li><a href="scores.html"><i class="fas fa-chart-bar"></i> <span class="menu-text">Scores</span></a></li>
+      <li><a href="settings.html"><i class="fas fa-cogs"></i> <span class="menu-text">Settings</span></a></li>
+      <li class="logout"><a href="signin.html"><i class="fas fa-sign-out-alt"></i> <span class="menu-text">Logout</span></a></li>
     </ul>
   </div>
-
   <!-- Main Content -->
   <div class="main-content">
-    <header>
-      <h2>Quiz Bank</h2>
-      <div class="profile">
-        <img src="profile.png" alt="Profile" />
-      </div>
-    </header>
 
     <section class="content">
       <!-- Search Bar -->
