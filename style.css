@@ -914,7 +914,7 @@ header {
     display: none; 
   }
   .sidebar {
-    left: -100pxpx; /* Hidden off-screen by default */
+    left: -100px; /* Hidden off-screen by default */
     width: 70px;
 
   }
