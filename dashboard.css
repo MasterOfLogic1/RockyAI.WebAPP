@@ -1,0 +1,182 @@
+/* General Styling */
+.dashboard {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: black;
+    display: flex;
+}
+
+/* Sidebar */
+.dashboard .sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #0e4bf1;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: width 0.3s;
+}
+
+.dashboard .sidebar .toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+/* Sidebar Menu */
+.dashboard .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard .sidebar ul li {
+    position: relative;
+    padding: 15px 20px;
+}
+
+/* Sidebar Links */
+.dashboard .sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Sidebar Icons */
+.dashboard .sidebar ul li a i {
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+/* Active Page Highlight - Transparent Film Effect */
+.dashboard .sidebar ul li a.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    z-index: -1;
+}
+
+/* Hover Effect */
+.dashboard .sidebar ul li a:hover::before {
+    width: 100%;
+}
+
+/* Sidebar Collapse */
+.dashboard .sidebar.collapsed {
+    width: 80px;
+}
+
+.dashboard .sidebar.collapsed .menu-text {
+    display: none;
+}
+
+/* Main Content */
+.dashboard .main-content {
+    margin-left: 250px;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    transition: margin-left 0.3s;
+}
+
+.dashboard .sidebar.collapsed + .main-content {
+    margin-left: 80px;
+}
+
+/* Header */
+.dashboard header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #f8f8f8;
+    border-bottom: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+/* Profile Icon */
+.dashboard .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Sub-header Message */
+.dashboard .sub-header {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0e4bf1;
+    margin-top: 50px;
+}
+
+/* Get Started Link */
+.dashboard .get-started-link {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #ef689e;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.dashboard .get-started-link:hover {
+    background-color: #e30449;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard .sidebar {
+        width: 80px;
+    }
+
+    .dashboard .menu-text {
+        display: none;
+    }
+
+    .dashboard .main-content {
+        margin-left: 80px;
+    }
+}
+
+/* Section Content Container */
+.dashboard .content {
+    background: #f8f8f8; /* Match header background */
+    border: 2px solid #ddd; /* Match header border */
+    border-radius: 10px; /* Rounded edges */
+    padding: 20px; /* Add spacing inside */
+    margin-top: 20px; /* Add spacing from header */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    
+    flex-grow: 1; /* Allow it to expand and take up remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content if needed */
+}
+
+/* Ensure the main content fills the available space */
+.dashboard .main-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 20px); /* Full height minus some spacing */
+}

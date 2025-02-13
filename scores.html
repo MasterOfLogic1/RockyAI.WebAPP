@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Bank</title>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="dashboard.js"></script>
+</head>
+<body class="dashboard">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <button class="toggle-btn"><i class="fas fa-bars"></i></button>
+    <ul>
+      <li>
+        <a href="create.html" class="menu-item">
+          <i class="fas fa-pen"></i> <span class="menu-text">Create</span>
+        </a>
+      </li>
+      <li>
+        <a href="quizbank.html" class="menu-item">
+          <i class="fas fa-book"></i> <span class="menu-text">Quiz Bank</span>
+        </a>
+      </li>
+      <li>
+        <a href="scores.html" class="menu-item">
+          <i class="fas fa-chart-bar"></i> <span class="menu-text">Scores</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html" class="menu-item">
+          <i class="fas fa-cogs"></i> <span class="menu-text">Settings</span>
+        </a>
+      </li>
+      <li class="logout">
+        <a href="signin.html" class="menu-item">
+          <i class="fas fa-sign-out-alt"></i> <span class="menu-text">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h2>Quiz Bank</h2>
+      <div class="profile">
+        <img src="profile.png" alt="Profile" />
+      </div>
+    </header>
+
+    <section class="content">
+      <!-- Search Bar -->
+    <div class="score-content">
+      <div class="search-container">
+        <input type="text" placeholder="Search quizzes..." class="search-input" />
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+
+      <!-- Quiz Grid Table -->
+      <div class="score-grid">
+        <table>
+          <thead>
+            <tr>
+              <th>Test ID</th>
+              <th>Test Name</th>
+              <th>Candidate Name</th>
+              <th>Completion Date</th>
+              <th>Score</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example Row -->
+            <tr>
+              <td>001</td>
+              <td>Introduction to CSS</td>
+              <td>David Oku</td>
+              <td>2025-02-11</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>Introduction to Excel</td>
+              <td>David Chukwuebuka</td>
+              <td>2025-02-11</td>
+              <td>60.6</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </section>
+  </div>
+</body>
+</html>
