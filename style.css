@@ -14,44 +14,170 @@
 html, 
 body {
   background: #0e4bf1;
-  /* Removed overflow: hidden; */
   overflow-x: hidden; /* keep X hidden if you want to prevent horizontal scroll */
   overflow-y: auto;   /* enable vertical scrolling */
 }
 
-/* Let the footer follow content naturally */
+/* Footer if you have one */
 .footer {
   width: 100%;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
-  padding: 15px 0;
   color: white;
   font-size: 14px;
-  /* Remove absolute positioning so it doesn't stay fixed at the bottom */
-  position: static;
-  /* Or if you want a sticky footer that stays at bottom when content is short, 
-     you can use position: relative; plus a flex container approach, 
-     but typically static is fine for normal scrolling. */
+  padding: 15px 0;
+  position: static; /* remove absolute/fixed positioning */
 }
 
-
 /* ============================================
-   SEA, SUBMARINE, BUBBLES, GROUND & ANIMATIONS
-   (If you only want this animation on your homepage,
-    you can wrap this in a homepage-specific wrapper or body class.)
+   NAV MENU ONLY
 ============================================ */
+.web-nav .hamburger {
+  display: none; /* Hide on desktop by default */
+  cursor: pointer;
+}
 
-.seaContainer {
+.web-nav .hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.web-nav .top-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1900px;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(2, 37, 62, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-radius: 15px;
+  z-index: 1000;
+}
+
+.web-nav .top-nav .logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.web-nav .top-nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.web-nav .top-nav .nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.web-nav .top-nav .nav-links li a::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ef689e;
+  transition: width 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.web-nav .top-nav .nav-links li a:hover::before {
+  width: 100%;
+}
+
+.web-nav .get-started-btn {
+  padding: 10px 20px;
+  background-color: #ef689e;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.web-nav .get-started-btn:hover {
+  background-color: #e30449;
+}
+
+@media (max-width: 900px) {
+
+  /* This rearranges the nav if you want, but not mandatory */
+  .web-nav .top-nav {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  /* IMPORTANT: Hide nav links on mobile by default */
+  .web-nav .top-nav .nav-links {
+    display: none; /* hide by default */
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  /* When the nav has .active, show the links */
+  .web-nav .top-nav.active .nav-links {
+    display: flex;
+  }
+
+  /* Adjust the link style for smaller screens */
+  .web-nav .top-nav .nav-links li a {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  /* Show the hamburger on mobile */
+  .web-nav .hamburger {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1000; /* So it appears above everything */
+  }
+
+}
+
+/* ----------------------------------
+   SEA, SUBMARINE, BUBBLES, GROUND
+---------------------------------- */
+
+.home-page .seaContainer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: #0e4bf1;
-  overflow: hidden; /* This can remain if it's purely for the submarine animation in the background */
+  overflow: hidden;
+  z-index: 1;
 }
 
-.submarine__container {
+.home-page-container {
+  position: relative;
+  z-index: 1;   /* So it’s above the submarine */
+  min-height: 90vh; /* or enough to create a scrollable space */
+}
+
+.home-page .submarine__container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,7 +186,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.submarine__body {
+.home-page .submarine__body {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -71,7 +197,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.submarine__propeller {
+.home-page .submarine__propeller {
   position: absolute;
   left: 80%;
   top: 50%;
@@ -81,7 +207,7 @@ body {
   perspective: 600px;
 }
 
-.propeller__perspective {
+.home-page .propeller__perspective {
   width: 100%;
   height: 100%;
   transition: transform 1s;
@@ -90,7 +216,7 @@ body {
   cursor: pointer;
 }
 
-.submarine__propeller-parts {
+.home-page .submarine__propeller-parts {
   position: absolute;
   left: 0;
   width: 100%;
@@ -100,19 +226,19 @@ body {
   transform-style: preserve-3d;
 }
 
-.darkOne {
+.home-page .darkOne {
   top: 0;
   background: #f7ac08;
   transform: rotateY(180deg) rotateX(225deg);
 }
 
-.lightOne {
+.home-page .lightOne {
   top: 0;
   background: #f7e349;
   transform: rotateX(45deg);
 }
 
-.submarine__sail {
+.home-page .submarine__sail {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -123,7 +249,7 @@ body {
   clip-path: polygon(0% 0%, 70% 0%, 100% 100%, 0% 100%);
 }
 
-.submarine__sail-shadow {
+.home-page .submarine__sail-shadow {
   position: absolute;
   width: 160%;
   height: 10%;
@@ -131,25 +257,25 @@ body {
   border-radius: 5px;
 }
 
-.dark1 {
+.home-page .dark1 {
   left: 0;
   top: 0;
   transform: translate(0, -33%);
 }
 
-.dark2 {
+.home-page .dark2 {
   left: 0;
   top: 50%;
 }
 
-.light1 {
+.home-page .light1 {
   left: 20%;
   top: 20%;
   width: 50%;
   background: #ef689e;
 }
 
-.submarine__window {
+.home-page .submarine__window {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -159,22 +285,22 @@ body {
   animation: shadow-change 1s linear infinite;
 }
 
-.one,
-.two {
+.home-page .one,
+.home-page .two {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.one {
+.home-page .one {
   left: 40%;
 }
 
-.two {
+.home-page .two {
   left: 20%;
 }
 
-.submarine__shadow-dark {
+.home-page .submarine__shadow-dark {
   position: absolute;
   left: 70%;
   top: 50%;
@@ -185,7 +311,7 @@ body {
   background: #a10532;
 }
 
-.submarine__shadow-light {
+.home-page .submarine__shadow-light {
   position: absolute;
   left: 35%;
   top: 13%;
@@ -196,7 +322,7 @@ body {
   background: #ef689e;
 }
 
-.submarine__shadow-arcLight {
+.home-page .submarine__shadow-arcLight {
   position: absolute;
   top: 65%;
   left: 80%;
@@ -206,7 +332,7 @@ body {
   background: #ef689e;
 }
 
-.submarine__periscope {
+.home-page .submarine__periscope {
   position: absolute;
   top: 0;
   left: 40%;
@@ -219,7 +345,7 @@ body {
   border-top-right-radius: 10px;
 }
 
-.submarine__periscope-glass {
+.home-page .submarine__periscope-glass {
   position: absolute;
   left: 40%;
   top: 0;
@@ -229,7 +355,7 @@ body {
   transform: translate(-50%, -15%);
 }
 
-.light {
+.home-page .light {
   position: absolute;
   top: 0;
   left: 0;
@@ -240,7 +366,7 @@ body {
   transform: translate(-18%, -45%);
 }
 
-.bubbles__container {
+.home-page .bubbles__container {
   position: absolute;
   top: 50%;
   left: 55%;
@@ -249,7 +375,7 @@ body {
   transform: translate(100%, -50%);
 }
 
-.bubbles {
+.home-page .bubbles {
   position: absolute;
   width: 10px;
   height: 10px;
@@ -260,7 +386,7 @@ body {
   opacity: 0.8;
 }
 
-.bubble-1 {
+.home-page .bubble-1 {
   top: 15%;
   left: 1%;
   opacity: 0;
@@ -268,7 +394,7 @@ body {
   animation-delay: 0.25s;
 }
 
-.bubble-2 {
+.home-page .bubble-2 {
   top: 30%;
   left: 1%;
   opacity: 0;
@@ -276,7 +402,7 @@ body {
   animation-delay: 0.5s;
 }
 
-.bubble-3 {
+.home-page .bubble-3 {
   top: 45%;
   left: 1%;
   opacity: 0;
@@ -284,7 +410,7 @@ body {
   animation-delay: 0.75s;
 }
 
-.bubble-4 {
+.home-page .bubble-4 {
   top: 60%;
   left: 1%;
   opacity: 0;
@@ -292,7 +418,7 @@ body {
   animation-delay: 1s;
 }
 
-.ground__container {
+.home-page .ground__container {
   position: absolute;
   top: 75%;
   left: 0;
@@ -302,13 +428,13 @@ body {
   margin-top: 20px;
 }
 
-.ground1 {
+.home-page .ground1 {
   top: 75%;
   height: 100%;
   background: #032ea2;
 }
 
-.ground2 {
+.home-page .ground2 {
   position: absolute;
   top: 35%;
   width: 100%;
@@ -316,18 +442,18 @@ body {
   background: #021a5c;
 }
 
-.ground span {
+.home-page .ground span {
   position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
 }
 
-.ground1 span {
+.home-page .ground1 span {
   background: #032ea2;
 }
 
-.ground2 span {
+.home-page .ground2 span {
   background: #021a5c;
   width: 80px;
   height: 80px;
@@ -335,26 +461,26 @@ body {
   transform: translateY(30%);
 }
 
-.up-1 { left: 0%; top: -2px; animation: moveThegroundRight 3s infinite linear; }
-.up-2 { left: -10%; top: -4px; animation: moveThegroundRight 4s infinite linear; }
-.up-3 { left: -20%; top: -6px; animation: moveThegroundRight 5s infinite linear; }
-.up-4 { left: -30%; top: -8px; animation: moveThegroundRight 6s infinite linear; }
-.up-5 { left: -40%; top: -10px; animation: moveThegroundRight 7s infinite linear; }
-.up-6 { left: -50%; top: -12px; animation: moveThegroundRight 8s infinite linear; }
-.up-7 { left: -60%; top: -14px; animation: moveThegroundRight 9s infinite linear; }
-.up-8 { left: -70%; top: -16px; animation: moveThegroundRight 10s infinite linear; }
-.up-9 { left: -80%; top: -18px; animation: moveThegroundRight 11s infinite linear; }
-.up-10 { left: -90%; top: -20px; animation: moveThegroundRight 12s infinite linear; }
-.up-11 { left: -100%; top: -22px; animation: moveThegroundRight 13s infinite linear; }
-.up-12 { left: -110%; top: -24px; animation: moveThegroundRight 14s infinite linear; }
-.up-13 { left: -120%; top: -26px; animation: moveThegroundRight 15s infinite linear; }
-.up-14 { left: -130%; top: -28px; animation: moveThegroundRight 16s infinite linear; }
-.up-15 { left: -140%; top: -30px; animation: moveThegroundRight 17s infinite linear; }
-.up-16 { left: -150%; top: -32px; animation: moveThegroundRight 18s infinite linear; }
-.up-17 { left: -160%; top: -34px; animation: moveThegroundRight 19s infinite linear; }
-.up-18 { left: -170%; top: -36px; animation: moveThegroundRight 20s infinite linear; }
-.up-19 { left: -180%; top: -38px; animation: moveThegroundRight 21s infinite linear; }
-.up-20 { left: -190%; top: -40px; animation: moveThegroundRight 22s infinite linear; }
+.home-page .up-1 { left: 0%; top: -2px; animation: moveThegroundRight 3s infinite linear; }
+.home-page .up-2 { left: -10%; top: -4px; animation: moveThegroundRight 4s infinite linear; }
+.home-page .up-3 { left: -20%; top: -6px; animation: moveThegroundRight 5s infinite linear; }
+.home-page .up-4 { left: -30%; top: -8px; animation: moveThegroundRight 6s infinite linear; }
+.home-page .up-5 { left: -40%; top: -10px; animation: moveThegroundRight 7s infinite linear; }
+.home-page .up-6 { left: -50%; top: -12px; animation: moveThegroundRight 8s infinite linear; }
+.home-page .up-7 { left: -60%; top: -14px; animation: moveThegroundRight 9s infinite linear; }
+.home-page .up-8 { left: -70%; top: -16px; animation: moveThegroundRight 10s infinite linear; }
+.home-page .up-9 { left: -80%; top: -18px; animation: moveThegroundRight 11s infinite linear; }
+.home-page .up-10 { left: -90%; top: -20px; animation: moveThegroundRight 12s infinite linear; }
+.home-page .up-11 { left: -100%; top: -22px; animation: moveThegroundRight 13s infinite linear; }
+.home-page .up-12 { left: -110%; top: -24px; animation: moveThegroundRight 14s infinite linear; }
+.home-page .up-13 { left: -120%; top: -26px; animation: moveThegroundRight 15s infinite linear; }
+.home-page .up-14 { left: -130%; top: -28px; animation: moveThegroundRight 16s infinite linear; }
+.home-page .up-15 { left: -140%; top: -30px; animation: moveThegroundRight 17s infinite linear; }
+.home-page .up-16 { left: -150%; top: -32px; animation: moveThegroundRight 18s infinite linear; }
+.home-page .up-17 { left: -160%; top: -34px; animation: moveThegroundRight 19s infinite linear; }
+.home-page .up-18 { left: -170%; top: -36px; animation: moveThegroundRight 20s infinite linear; }
+.home-page .up-19 { left: -180%; top: -38px; animation: moveThegroundRight 21s infinite linear; }
+.home-page .up-20 { left: -190%; top: -40px; animation: moveThegroundRight 22s infinite linear; }
 
 @keyframes shadow-change {
   0%, 100% {
@@ -393,96 +519,6 @@ body {
   95%, 100% { left: 1050%; opacity: 0; }
 }
 
-/* ============================================
-   TOP NAVIGATION & LOGO
-============================================ */
-.top-nav {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95%;
-  max-width: 1900px;
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  z-index: 1000;
-}
-
-.top-nav .logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: #fff;
-  letter-spacing: 1px;
-}
-
-.top-nav .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-.top-nav .nav-links li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 10px 15px;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-}
-
-.top-nav .nav-links li a::before {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #ef689e;
-  transition: width 0.3s ease-in-out;
-  transform: translateX(-50%);
-}
-
-.top-nav .nav-links li a:hover::before {
-  width: 100%;
-}
-
-.get-started-btn {
-  padding: 10px 20px;
-  background-color: #ef689e;
-  border-radius: 8px;
-  color: #fff;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.get-started-btn:hover {
-  background-color: #e30449;
-}
-
-/* Mobile Responsive Navigation */
-@media (max-width: 768px) {
-  .top-nav {
-    flex-direction: column;
-    text-align: center;
-    padding: 12px 20px;
-  }
-  .top-nav .nav-links {
-    gap: 15px;
-    flex-direction: column;
-  }
-  .top-nav .nav-links li a {
-    font-size: 16px;
-    padding: 8px 12px;
-  }
-}
 
 /* ============================================
     SIGN UP PAGE ONLY
@@ -1439,9 +1475,9 @@ body {
 }
 
 /* ============================================
-   ABOUT PAGE & TEAM SECTION
+   STANDARD PAGE I.E - ABOUT PAGE & HOW IT WORKS
 ============================================ */
-.about-us .wrapper {
+.standard-page .wrapper {
   background: white;
   color: black;
   max-width: 90%;
@@ -1454,7 +1490,7 @@ body {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.about-us h2 {
+.standard-page h2 {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -1464,7 +1500,7 @@ body {
   display: inline-block;
 }
 
-.about-us h2::after {
+.standard-page h2::after {
   content: "";
   display: block;
   width: 80px;
@@ -1474,12 +1510,12 @@ body {
   border-radius: 2px;
 }
 
-.about-us h3 {
+.standard-page h3 {
   font-size: 26px;
   margin-top: 20px;
 }
 
-.about-us p {
+.standard-page p {
   font-size: 18px;
   line-height: 1.6;
 }
@@ -1515,6 +1551,36 @@ body {
   margin-top: 10px;
   color: black;
 }
+
+/* Add some bottom padding so content won't be hidden under the footer */
+.standard-page-container {
+  padding-bottom: 60px; /* Should be >= footer height */
+}
+
+/* Footer styling */
+.standard-page .footer {
+  position: fixed;       /* Stay in place when scrolling */
+  left: 0;
+  right: 0;
+  bottom: 0;            /* Lock to bottom */
+  height: 60px;         /* Adjust as needed */
+  text-align: center;
+  background: rgba(167, 171, 173, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-size: 14px;
+  padding: 10px;
+  line-height: 40px;    /* Vertically center text if needed */
+  z-index: 9999;        /* Ensure it's on top of other elements */
+}
+
+.standard-page .footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
 
 /* ============================================
    RESPONSIVE DESIGN (repeated to ensure coverage)

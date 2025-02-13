@@ -6,12 +6,27 @@
     <title>About Us | Rocy.ai</title> 
     <link rel="stylesheet" href="style.css">
   </head>
-<body class="about-us">  <!-- Added 'about-us' class for specific styling -->
+<body class="standard-page">  <!-- Added 'about-us' class for specific styling -->
 
-    <nav class="logo-wrapper">
-        <div class="logo"><a href="index.html">Rocky</a></div>
-    </nav>
-  
+    <div class="about-us-container">
+        <!-- Top Navigation Menu -->
+    <div class="web-nav">
+        <nav class="top-nav">
+          <div class="logo">Rocky</div>
+          <!-- Hamburger Icon -->
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="howitworks.html">How It Works</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="signup.html" class="get-started-btn">Get Started</a></li>
+          </ul>
+        </nav>
+    </div>
     <div class="wrapper">
         <h2>About Us</h2>
         <p>
@@ -53,6 +68,13 @@
             Want to learn more? <a href="contact.html">Contact us</a> or follow us on our social media channels to stay updated.
         </p>
     </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Rokcy.ai &amp; Deskstones Limited | All Rights Reserved</p>
+    </footer>
+    
+      <!-- Include your JS at the end so it can see the DOM elements -->
+      <script src="script.js"></script>
 
 </body>
 </html>

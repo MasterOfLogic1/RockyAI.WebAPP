@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Submarine Animation</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Top Navigation Menu -->
-    <nav class="top-nav">
-        <div class="logo">Rocky</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="howitworks.html">How It Works</a></li>
-            <li><a href="signin.html">Sign In</a></li>
-            <li><a href="signup.html" class="get-started-btn">Get Started</a></li>
-        </ul>
-    </nav>
-    
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Submarine Animation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="home-page">
 
+  <!-- Container for the entire page content -->
+  <div class="home-page-container">
+    <!-- Top Navigation Menu -->
+    <div class="web-nav">
+      <nav class="top-nav">
+        <div class="logo">Rocky</div>
+        <!-- Hamburger Icon -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="howitworks.html">How It Works</a></li>
+          <li><a href="signin.html">Sign In</a></li>
+          <li><a href="signup.html" class="get-started-btn">Get Started</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Submarine & Animation Container -->
     <div class="seaContainer">
       <div class="submarine__container">
         <div class="light"></div>
@@ -44,9 +54,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Get Started Button Positioned Below the Ship -->
-    
 
       <div class="bubbles__container">
         <span class="bubbles bubble-1"></span>
@@ -91,9 +98,19 @@
         </div>
       </div>
     </div>
+
+    <!-- Sample text below submarine -->
     <h2 class="sub-header">
-        Turn notes into a quick quiz session in Secs!  
-        <a href="howitworks.html" class="learn-more-link">Learn More</a>
-    </h2>    
-  </body>
+      Turn notes into a quick quiz session in Secs!  
+      <a href="howitworks.html" class="learn-more-link">Learn More</a>
+    </h2>
+
+  </div> <!-- End .home-page-container -->
+  <footer class="footer">
+    <p>&copy; 2025 Rokcy.ai &amp; Deskstones Limited | All Rights Reserved</p>
+  </footer>
+
+  <!-- Include your JS at the end so it can see the DOM elements -->
+  <script src="script.js"></script>
+</body>
 </html>
